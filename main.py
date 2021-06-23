@@ -13,6 +13,7 @@ screen.listen()
 screen.onkey(player.go_up,"Up")
 
 car_manager = CarManager()
+scoreboard = Scoreboard()
 
 game_is_on = True
 while game_is_on:
@@ -20,13 +21,21 @@ while game_is_on:
     screen.update()
     car_manager.add_car()
     car_manager.move_car()
+
     #detect car collision
     for  car in car_manager.cars:
         if car.distance(player) <20:
             game_is_on = False
+            scoreboard.game_over()
+
     # crossed successfully
         if player.crossed_finish_line():
             player.go_to_start()
+            car_manager.level_up()
+            scoreboard.increase_level()
+
+
+screen.exitonclick()
 
 
 

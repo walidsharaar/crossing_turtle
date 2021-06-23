@@ -23,9 +23,9 @@ class CarManager:
             self.cars.append(new_car)
     def move_car(self):
         for car in self.cars:
-            car.backward(STARTING_MOVE_DISTANCE)
+            car.backward(self.car_speed)
 
     def level_up(self):
-        self.
+       self.car_speed +=MOVE_INCREMENT
 
 
