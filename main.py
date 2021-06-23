@@ -24,4 +24,9 @@ while game_is_on:
     for  car in car_manager.cars:
         if car.distance(player) <20:
             game_is_on = False
+    # crossed successfully
+        if player.crossed_finish_line():
+            player.go_to_start()
+
+
 
